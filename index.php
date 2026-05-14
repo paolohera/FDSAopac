@@ -1004,24 +1004,26 @@ $isLoggedIn = isLoggedIn();
         <div class="d-flex align-items-center gap-3">
             <a class="nav-link d-inline-block" href="index.php">Catalog</a>
             <?php if ($isLoggedIn): ?>
-                <div class="user-info">
-                   
-                    <button class="nav-link" style="background: none; border: none;" onclick="openAddModal()">
-                        <i class="bi bi-plus-circle"></i> Add Book
-                    </button>
-                     <span class="nav-link" style="cursor: default;">
-                        <i class="bi bi-person-circle"></i> <?php echo htmlspecialchars($_SESSION['admin_fullname'] ?? $_SESSION['admin_username']); ?>
-                        
-                    </span>
-                    <button onclick="openLogoutModal()" class="nav-link logout-btn" style="background: none; border: none;">
-                        <i class="bi bi-box-arrow-right"></i> Logout
-                    </button>
-                </div>
-            <?php else: ?>
-                <a href="login.php" class="nav-link login-btn">
-                    <i class="bi bi-shield-lock"></i> Librarian Login
-                </a>
-            <?php endif; ?>
+    <div class="user-info">
+        <span class="nav-link" style="cursor: default;">
+            <i class="bi bi-person-circle"></i> <?php echo htmlspecialchars($_SESSION['admin_fullname'] ?? $_SESSION['admin_username']); ?>
+            <span class="admin-badge">Admin</span>
+        </span>
+        <button class="nav-link" style="background: none; border: none;" onclick="openAddModal()">
+            <i class="bi bi-plus-circle"></i> Add Book
+        </button>
+        <a href="import_word.php" class="nav-link">
+            <i class="bi bi-file-earmark-word"></i> Import Books
+        </a>
+        <button onclick="openLogoutModal()" class="nav-link logout-btn" style="background: none; border: none;">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </button>
+    </div>
+<?php else: ?>
+    <a href="login.php" class="nav-link login-btn">
+        <i class="bi bi-shield-lock"></i> Librarian Login
+    </a>
+<?php endif; ?>
         </div>
     </div>
 </nav>
